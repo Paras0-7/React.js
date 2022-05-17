@@ -20,7 +20,7 @@ export function ExpenseForm(props) {
     setUserInput((prevState) => {
       return {
         ...prevState,
-        amount: e.target.value,
+        amount: +e.target.value,
       };
     });
   };
