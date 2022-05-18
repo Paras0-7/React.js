@@ -1,0 +1,22 @@
+.course-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+  gap: 1rem;
+}
+.course-form label {
+  font-weight: bold;
+}
+.course-form input {
+  width: 100%;
+  border: 1px solid #ccc;
+  font: inherit;
+  line-height: 1.5rem;
+  padding: 0 0.25rem;
+}
+
+.course-form input:focus {
+  outline: none;
+  background: #fad0ec;
+  border-color: #8b005d;
+}
