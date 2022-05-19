@@ -1,0 +1,13 @@
+#user-form,
+#users {
+  width: 40rem;
+  margin: 3rem auto;
+  max-width: 90%;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+  display: none;
+}
