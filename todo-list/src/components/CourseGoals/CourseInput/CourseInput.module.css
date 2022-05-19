@@ -20,3 +20,12 @@
   background: #fad0ec;
   border-color: #8b005d;
 }
+
+.course-form.invalid input {
+  border-color: red;
+  background-color: #ffd7d7;
+}
+
+.course-form.invalid label {
+  color: red;
+}
