@@ -1,12 +1,17 @@
 import styles from "./UserInput.module.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ErrorModal } from "../ErrorModal/ErrorModal";
 export const UserInput = function (props) {
-  const [user, setUser] = useState({ name: "", age: "" });
+  const nameRef = useRef();
+  const ageRef = useRef();
+
   const [error, setError] = useState("");
   const formSubmitHandler = function (e) {
     e.preventDefault();
-
+    const user = {
+      name: nameRef.current.value,
+      age: ageRef.current.value,
+    };
     if (user.name.trim().length === 0 || user.age.trim().length === 0) {
       setError({
         title: "Invalid Input",
@@ -27,29 +32,8 @@ export const UserInput = function (props) {
       data,
       id: Math.random().toString(),
     };
-    setUser({
-      name: "",
-      age: "",
-    });
+
     props.addNewUser(newUser);
-  };
-
-  const nameChangeHandler = function (e) {
-    setUser((prev) => {
-      return {
-        ...prev,
-        name: e.target.value,
-      };
-    });
-  };
-
-  const ageChangeHandler = function (e) {
-    setUser((prev) => {
-      return {
-        ...prev,
-        age: e.target.value,
-      };
-    });
   };
 
   const errorHandler = function () {
@@ -67,9 +51,9 @@ export const UserInput = function (props) {
       <form onSubmit={formSubmitHandler}>
         <div className={styles["user-form"]}>
           <label>Username</label>
-          <input onChange={nameChangeHandler} value={user.name} type="text" />
+          <input ref={nameRef} type="text" />
           <label>Age (Years)</label>
-          <input onChange={ageChangeHandler} value={user.age} type="number" />
+          <input ref={ageRef} type="number" />
           <button className={styles.btn} type="submit">
             Add User
           </button>
