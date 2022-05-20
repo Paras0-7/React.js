@@ -1,3 +1,5 @@
+$error: red;
+
 .course-form {
   display: flex;
   flex-direction: column;
@@ -22,10 +24,10 @@
 }
 
 .course-form.invalid input {
-  border-color: red;
+  border-color: $error;
   background-color: #ffd7d7;
 }
 
 .course-form.invalid label {
-  color: red;
+  color: $error;
 }

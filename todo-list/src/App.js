@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CourseInput } from "./components/CourseGoals/CourseInput/CourseInput";
-import "./App.css";
+import "./App.scss";
 import { CourseGoalList } from "./components/CourseGoals/CourseGoalList/CourseGoalList";
 
 function App() {

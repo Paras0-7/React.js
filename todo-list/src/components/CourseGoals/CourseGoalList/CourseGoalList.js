@@ -1,5 +1,5 @@
 import { CourseGoalItem } from "../CourseGoalItem/CourseGoalItem";
-import "./CourseGoalList.css";
+import "./CourseGoalList.scss";
 export const CourseGoalList = function (props) {
   return (
     <ul className="goal-list">

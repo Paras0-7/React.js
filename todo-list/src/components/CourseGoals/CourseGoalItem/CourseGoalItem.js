@@ -1,4 +1,4 @@
-import "./CourseGoalItem.css";
+import "./CourseGoalItem.scss";
 
 export const CourseGoalItem = function (props) {
   const deleteGoal = function (e) {

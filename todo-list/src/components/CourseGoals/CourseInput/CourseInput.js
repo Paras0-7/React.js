@@ -1,6 +1,6 @@
 import { Button } from "../../UI/Button";
 import { useState } from "react";
-import styles from "./CourseInput.module.css";
+import styles from "./CourseInput.module.scss";
 
 // const FormControl = styled.div`
 //   display: flex;
