@@ -65,7 +65,6 @@ export const fetchCartData = function () {
       const data = await response.json();
       return data;
     };
-
     try {
       const cartData = await fetchData();
       dispatch(
