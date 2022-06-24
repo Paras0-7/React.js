@@ -1,1 +1,5 @@
-<p>user works!</p>
+<ul *ngFor="let user of users">
+  <div class="card" *ngIf="user.isDeleted != true">
+    <div class="cards-data">{{ user.firstName }} {{ user.lastName }}</div>
+  </div>
+</ul>

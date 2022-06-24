@@ -7,7 +7,7 @@ import { UsersListComponent } from './MyComponent/users-list/users-list.componen
 const routes: Routes = [
   {
     path: 'active',
-    component: UserComponent,
+    component: UsersListComponent,
   },
   {
     path: 'deleted',
