@@ -1,0 +1,11 @@
+.card {
+  border-radius: 3px;
+}
+
+.active {
+  border: 1px solid green;
+}
+
+.delete {
+  border: 1px solid red;
+}
