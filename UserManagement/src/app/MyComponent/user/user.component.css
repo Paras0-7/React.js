@@ -1,11 +1,18 @@
+ul {
+  margin-right: 25px;
+  list-style: none;
+}
 .card {
   border-radius: 3px;
 }
 
-.active {
-  border: 1px solid green;
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 1rem;
 }
 
-.delete {
-  border: 1px solid red;
+.active {
+  border: 1px solid lightgreen;
 }

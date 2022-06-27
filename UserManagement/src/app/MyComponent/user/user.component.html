@@ -1,5 +1,18 @@
 <ul *ngFor="let user of users">
-  <div class="card" *ngIf="user.isDeleted != true">
-    <div class="cards-data">{{ user.firstName }} {{ user.lastName }}</div>
-  </div>
+  <li>
+    <div class="card active" *ngIf="user.isDeleted == false">
+      <div class="cards-data">
+        <div class="card-body">{{ user.firstName }} User</div>
+        <div class="action">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteUser(user.id)"
+          >
+            Deactivate
+          </button>
+        </div>
+      </div>
+    </div>
+  </li>
 </ul>

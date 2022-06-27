@@ -13,11 +13,11 @@ export class UserComponent implements OnInit {
   }
 
   deleteUser(id: any) {
-    this.users.find(function (user) {
-      if (user.id === id) {
-        user.isDeleted = true;
-      }
-    });
+    this.user.deleteUser(id);
+  }
+
+  activateUser(id: any) {
+    this.user.activateUser(id);
   }
   ngOnInit(): void {}
 }

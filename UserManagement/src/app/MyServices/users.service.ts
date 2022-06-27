@@ -14,9 +14,9 @@ interface User {
   providedIn: 'root',
 })
 export class UsersService {
-  constructor() {}
-  getData() {
-    const data: User[] = [
+  public data: User[];
+  constructor() {
+    this.data = [
       {
         id: '1',
         firstName: 'One',
@@ -82,7 +82,7 @@ export class UsersService {
       },
       {
         id: '8',
-        firstName: 'Ewight',
+        firstName: 'Eight',
         lastName: 'User',
         age: 20,
         login: 'yes',
@@ -90,6 +90,23 @@ export class UsersService {
         isDeleted: false,
       },
     ];
-    return data;
+  }
+  getData() {
+    return this.data;
+  }
+  deleteUser(id: string) {
+    this.data.find(function (user) {
+      if (user.id === id) {
+        user.isDeleted = true;
+      }
+    });
+  }
+
+  activateUser(id: string) {
+    this.data.find(function (user) {
+      if (user.id === id) {
+        user.isDeleted = false;
+      }
+    });
   }
 }
