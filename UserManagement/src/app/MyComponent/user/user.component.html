@@ -2,23 +2,30 @@
   <li>
     <div
       class="card"
-      [ngClass]="{ active: hasRoute('active'), deactive: hasRoute('deleted') }"
+      [ngClass]="{
+        active: user.isDeleted == false,
+        deactive: user.isDeleted == true
+      }"
       *ngIf="user.isDeleted == !hasRoute('active')"
     >
       <div class="cards-data">
         <div class="card-body">{{ user.firstName }} User</div>
         <div class="action">
           <button
+            *ngIf="hasRoute('active')"
             type="button"
-            class="btn"
-            [ngClass]="{
-              'btn-danger': hasRoute('active'),
-              'btn-success': hasRoute('deleted')
-            }"
-            (click)="*ngIf"
-            =" hasRoute('active') : deleteUser(user.id)"
+            class="btn btn-danger"
+            (click)="deleteUser(user.id)"
           >
             Deactivate
+          </button>
+          <button
+            *ngIf="hasRoute('deleted')"
+            type="button"
+            class="btn btn-success"
+            (click)="activateUser(user.id)"
+          >
+            Activate
           </button>
         </div>
       </div>
