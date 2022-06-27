@@ -16,3 +16,7 @@ ul {
 .active {
   border: 1px solid lightgreen;
 }
+
+.deactive {
+  border: 1px solid red;
+}

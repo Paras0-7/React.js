@@ -1,13 +1,22 @@
 <ul *ngFor="let user of users">
   <li>
-    <div class="card active" *ngIf="user.isDeleted == false">
+    <div
+      class="card"
+      [ngClass]="{ active: hasRoute('active'), deactive: hasRoute('deleted') }"
+      *ngIf="user.isDeleted == !hasRoute('active')"
+    >
       <div class="cards-data">
         <div class="card-body">{{ user.firstName }} User</div>
         <div class="action">
           <button
             type="button"
-            class="btn btn-danger"
-            (click)="deleteUser(user.id)"
+            class="btn"
+            [ngClass]="{
+              'btn-danger': hasRoute('active'),
+              'btn-success': hasRoute('deleted')
+            }"
+            (click)="*ngIf"
+            =" hasRoute('active') : deleteUser(user.id)"
           >
             Deactivate
           </button>
