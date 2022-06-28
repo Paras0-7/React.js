@@ -13,9 +13,11 @@ const routes: Routes = [
     path: 'deleted',
     component: UsersListComponent,
   },
+
   {
     path: 'manage',
-    component: UserDetailsComponent,
+    loadChildren: () =>
+      import('./MyModules/manage/manage.module').then((m) => m.ManageModule),
   },
 ];
 
