@@ -1,3 +1,17 @@
+import QuoteList from "./../components/quotes/QuoteList";
+const quotes = [
+  {
+    id: "q1",
+    author: "Max",
+    text: "Learning React is fun!",
+  },
+
+  {
+    id: "q2",
+    author: "Max Millian",
+    text: "Learning React is great!",
+  },
+];
 export const AllQuotes = function () {
-  return <h1>All Quotes Page</h1>;
+  return <QuoteList quotes={quotes} />;
 };
