@@ -1,4 +1,4 @@
-import { useParams, Route } from "react-router-dom";
+import { useParams, Route, Routes } from "react-router-dom";
 import Comments from "./../components/comments/Comments";
 import HighlightedQuote from "../components/quotes/HighlightedQuote";
 const quotes = [
@@ -24,9 +24,12 @@ export const QuoteDetails = function () {
     <div>
       <HighlightedQuote text={quote.text} author={quote.author} />
 
-      <Route path={`/quotes/${params.quoteId}/comments`}>
-        <Comments />
-      </Route>
+      <Routes>
+        <Route
+          path={`/quotes/${params.quoteId}/comments`}
+          element={<Comments />}
+        ></Route>
+      </Routes>
     </div>
   );
 };

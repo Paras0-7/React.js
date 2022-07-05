@@ -1,4 +1,4 @@
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import { AllQuotes } from "./pages/AllQuotes";
 import { NewQuotes } from "./pages/NewQuotes";
@@ -8,23 +8,12 @@ import { QuoteDetails } from "./pages/QuoteDetails";
 function App() {
   return (
     <Layout>
-      <Switch>
-        <Route path="/" exact>
-          <Redirect to="/quotes"></Redirect>
-        </Route>
-        <Route path="/quotes" exact>
-          <AllQuotes />
-        </Route>
-        <Route path="/quotes/:quoteId">
-          <QuoteDetails />
-        </Route>
-        <Route path="/new-quote">
-          <NewQuotes />
-        </Route>
-        <Route path="*">
-          <NotFound />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/quotes" element={<AllQuotes />}></Route>
+        <Route path="/quotes/:quoteId" element={<QuoteDetails />}></Route>
+        <Route path="/new-quote" element={<NewQuotes />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
+      </Routes>
     </Layout>
   );
 }

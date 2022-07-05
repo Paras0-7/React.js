@@ -7,14 +7,10 @@ export const MainNavigation = function () {
       <nav className={styles.nav}>
         <ul>
           <li>
-            <NavLink to="/quotes" activeClassName={styles.active}>
-              All Quotes
-            </NavLink>
+            <NavLink to="/quotes">All Quotes</NavLink>
           </li>
           <li>
-            <NavLink to="/new-quote" activeClassName={styles.active}>
-              Add a Quote
-            </NavLink>
+            <NavLink to="/new-quote">Add a Quote</NavLink>
           </li>
         </ul>
       </nav>
