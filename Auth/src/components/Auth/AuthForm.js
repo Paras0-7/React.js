@@ -1,12 +1,14 @@
-import { useState, useRef } from "react";
-
+import { useState, useRef, useContext } from "react";
+import { AuthContext } from "../../store/auth-context";
+import { useHistory } from "react-router-dom";
 import classes from "./AuthForm.module.css";
 
 const AuthForm = () => {
+  const history = useHistory();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const [isLogin, setIsLogin] = useState(true);
-
+  const authCtx = useContext(AuthContext);
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
@@ -15,7 +17,31 @@ const AuthForm = () => {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
+
     if (isLogin) {
+      fetch(
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyChTXFz2cQSgasx2Hk6tszHbukM5ewKqNQ",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            email: enteredEmail,
+            password: enteredPassword,
+            returnSecureToken: true,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+        })
+        .then((data) => {
+          authCtx.login(data.idToken);
+          history.replace("/");
+        });
     } else {
       fetch(
         "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyChTXFz2cQSgasx2Hk6tszHbukM5ewKqNQ",
@@ -30,11 +56,16 @@ const AuthForm = () => {
             "Content-Type": "application/json",
           },
         }
-      ).then((res) => {
-        if (res.ok) {
-          console.log(res);
-        }
-      });
+      )
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+        })
+        .then((data) => {
+          authCtx.login(data.idToken);
+          history.replace("/");
+        });
     }
   };
   return (
